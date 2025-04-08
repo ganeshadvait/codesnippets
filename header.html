@@ -821,13 +821,37 @@ gap: 5px
       display: flex;
       flex-direction: column;
       row-gap: 10px;
+      cursor: pointer;
     }
     .highlight-box:hover{
       background-color: #fff;
     }
+    .highlight-box:hover .highlight-title{
+      color: #1a73e8;
+      cursor: pointer;
+    }
     .highlight-title {
       font-weight: 600;
+      position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
     }
+    .highlight-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Adjust distance below text */
+  width: 100%;
+  height: 2px;
+  background-color: #1a73e8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.highlight-box:hover .highlight-title::after {
+  transform: scaleX(1);
+}
+  
     .highlight-link {
       color: #1a73e8;
       text-decoration: none;
@@ -1038,11 +1062,11 @@ gap: 5px
           </ul> 
         </li>
         <!--=============== DROPDOWN 1 ===============-->
-        <li class="dropdown__item it_has_submenu">
-          <div class="nav__link">
+        <li class=" dropdown__item it_has_submenu">
+          <div class="nav__link ">
            <a href="https://luxhospitals.com/specialities/">Treatments</a>  <svg class="arrow_icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" d="M13.5 5.5 8 11 2.5 5.5"/></svg>
           </div>
-          <div class="three_step_megamenu">
+          <div class=" dropdown__menu three_step_megamenu">
             <div class="megamenu_container">
               <div class="left">
           
@@ -1712,9 +1736,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const submenuTrigger = document.querySelector('.it_has_submenu');
   const threemenu = document.querySelector('.three_step_megamenu');
 
-  submenuTrigger.addEventListener('mouseenter', function (e) {
-    e.stopPropagation();
+  submenuTrigger.addEventListener('mouseenter', function () {
     this.classList.toggle('active');
+    threemenu.style.display = 'block';
   });
 
   document.addEventListener('mouseleave', function () {
@@ -1741,7 +1765,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const tabsContent = [proctology, generallapo, urology, Gynecology, plasticCosmetic];
 
   tabsParents.forEach((tabParent, index) => {
-    tabParent.addEventListener('mouseenter', function (e) {
+    tabParent.addEventListener('click', function (e) {
       e.stopPropagation();
 
       // Hide all content
