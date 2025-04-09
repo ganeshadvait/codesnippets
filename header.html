@@ -68,6 +68,8 @@
     margin:10px auto;
     padding:0 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
       }
 
       /*=============== NAV ===============*/
@@ -259,14 +261,15 @@ gap: 5px
         
       /* For large devices */
       @media screen and (min-width: 1118px) {
-        .header_container {
+        /* .header_container {
           margin-inline: auto;
-        }
+        } */
 
         .nav {
           height: calc(var(--header-height) + 2rem);
           display: flex;
           justify-content: space-between;
+          gap:110px;
           
         }
         .nav__toggle {
@@ -531,7 +534,7 @@ gap: 5px
       }
       .header_button{
         background: #FFFFFF;
-        box-shadow: 0px 4px 4px 0px #00000040;
+        /*box-shadow: 0px 4px 4px 0px #00000040;*/
         height: 55px;
         border-radius: 14px;
         display: flex;
@@ -540,6 +543,7 @@ gap: 5px
         padding-left: 12px;
         padding-right: 12px;
         margin-top: 16px;
+        border: 1px solid;
       }
       .call_icon{
         width: 20px;
@@ -1159,35 +1163,35 @@ gap: 5px
               <div class="right">
                 <div class="highlight-box">
                   <div class="highlight-title proctologyparent">proctology</div>
-                  <div>Scale, connect, and empower your business for the future.</div>
-                  <a href="#" class="highlight-link">Explore our offering →</a>
+                  <div>Advanced care for piles, fistula, fissures, and related conditions.</div>
+                  <a href="#" class="highlight-link">Available services →</a>
                 </div>
                 <div class="highlight-box">
                   <div class="highlight-title generarllaparoscopicparent">General & Laparoscopic surgery</div>
-                  <div>Scale, connect, and empower your business for the future.</div>
-                  <a href="#" class="highlight-link">Explore our offering →</a>
+                  <div>Minimally invasive treatments for faster recovery and better outcomes.</div>
+                  <a href="#" class="highlight-link">Available services →</a>
                 </div>
                 <div class="highlight-box"> 
                   <div class="highlight-title urologyparent">Urology</div>
-                  <div>Information about Smartsheet consulting, training, and implementation support.</div>
+                  <div>Comprehensive solutions for urinary tract and male reproductive health.</div>
                   <a href="#" class="highlight-link">Available services →</a>
                 </div>
                 <div class="highlight-box">
                   <div class="highlight-title genecology">Gynecology</div>
-                  <div>A complete summary of Smartsheet platform's security and reliability.</div>
-                  <a href="#" class="highlight-link">Trust Center →</a>
+                  <div>Personalized care for women’s health, and wellness needs.</div>
+                  <a href="#" class="highlight-link">Available services →</a>
                 </div>
                 <div class="highlight-box">
                   <div class="highlight-title plastic_consmetic">Plastic & Cosmetic Surgery</div>
-                  <div>A complete summary of Smartsheet platform's security and reliability.</div>
-                  <a href="#" class="highlight-link">Trust Center →</a>
+                  <div>Enhance, restore, and redefine with expert aesthetic procedures.</div>
+                  <a href="#" class="highlight-link">Available services →</a>
                 </div>
               </div>
             </div>
           
             <div class="footer">
-              <button>Watch a Reviews</button>
-              <button>Get free OPD</button>
+              <a href="https://maps.app.goo.gl/gBfheFgRj9JNrpAz9"><button> Reviews</button></a>
+                <a href="https://wa.me/917969084444"><button>Get free OPD</button></a>
             </div>
           </div>
        
