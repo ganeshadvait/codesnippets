@@ -1,0 +1,511 @@
+    
+<style>
+    .for_megamenu {
+        width: 100%; /* Assuming you want it to always take full width */
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 1000; /* Make sure this is appropriately set to be above other content */
+    }
+    
+        .custom-menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            gap: 10px;
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+        }
+    
+        .custommenu-container {
+            width: 1340px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 10px;
+            padding-top:50px;
+            border-radius: 8px;
+          }
+      
+          .menu-column {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+          }
+      
+          .menu-column h5 {
+            margin-bottom: 10px;
+            color: #000 !important;
+            
+              font-family: 'DM Sans';
+        font-weight: 800;
+          }
+      
+          .menu-column ul {
+            list-style: none;
+            padding: 0;
+          }
+      
+          .menu-column ul li {
+            padding-top:10px;
+              padding-bottom:10px;
+            
+          }
+          
+          
+          .menu-column ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+              font-weight:600;
+              letter-spacing:normal;
+          }
+      
+          @media (max-width: 768px) {
+            .custommenu-container {
+              grid-template-columns: repeat(2, 1fr);
+              gap: 15px;
+            }
+          }
+      
+          @media (max-width: 480px) {
+            .custommenu-container {
+              grid-template-columns: 1fr;
+            }
+              .menu-column h5{
+                  font-size:18px;
+              }
+              .menu-column:nth-child(4){
+                  border:none;
+              }
+              
+          }
+          @media (max-width:768px) {
+            .custom-menu{
+                display: none;
+            }
+              .menu-column {
+        width: 95%;
+        background-color: #fff;
+        margin:20px 0 0 0;
+        border-radius: 14px;
+        border: 1px solid #f6f6f6;
+        padding: 20px;
+        box-shadow: 2px 6px 15px rgba(0, 0, 0, 0);
+    }
+              .menu-column h5{
+                  padding-left:0;
+              }
+              .menu-column ul li a{
+                  font-size:16px !important;
+                  color:#212121;
+                  letter-spacing:0.2px !important;
+              }
+              
+          }
+          .menu-column:nth-child(4) {
+        background: #F6F8FC;
+        border-radius:14px;
+        color: #9FCAFD;
+      }
+      
+      
+      .menu-column:nth-child(4) ul li a:hover {
+        color: #ccc !important;
+      }
+
+
+    .menu-content {
+        display: none; /* Hide content initially */
+      }
+      
+      .menu-content.active {
+        display: block; /* Show content when active */
+      }
+
+     .middle-contains ul li a {
+        color: #3D2E4A;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+    
+    ul.custom-menu li {
+        width: max-content;
+        height: 42px;
+        padding: 10px;
+        display: flex;
+            font-size:18px;
+        justify-content: center;
+        align-items: center;
+    }
+    ul.custom-menu li:hover{
+        background: #DFF7EA;
+        border-radius: 8px;
+    }
+    @media(max-width:768px){
+        .menu-column:nth-child(4) h5{
+          color:white !important;
+          padding-left:18px !important;
+      }
+      .menu-column:nth-child(4) ul li a {
+        color: white !important;
+      }
+    }
+    @media(min-width:768px){
+        .menu-column:nth-child(4) h5{
+          color:#9fcafd !important;
+          padding-left:18px !important;
+      }
+      .menu-column:nth-child(4) ul li a {
+        color: #212121 !important;
+      }
+    }
+    
+    
+    .menu-column:nth-child(4) {
+        background: #F6F8FC;
+        border-radius: 14px;
+        color: #9FCAFD;
+        height: fit-content;
+    }
+    @media (min-width: 768px) {
+        .menu-column:nth-child(4) h5 {
+            color: #9fcafd !important;
+            padding-left: 10px !important;
+        }
+    }
+    @media(max-width:768px){
+        .menu-column:nth-child(4) h5 {
+            color: #0c0d0e !important;}
+        .menu-column:nth-child(4) ul li a {
+            color: #15003e !important;
+        }
+    }
+
+    .flexes-megamenu{
+        display:flex;
+        column-gap:5px;
+    }
+    .arrow-headformegamenu {
+        height: 15px;
+        width:10px;
+        object-fit:cover;
+        transition: border-color .3s, transform .3s;
+        transform: none;
+        transform-style: preserve-3d;
+    }
+    @media(max-width:768px){
+        .arrow-headformegamenu{
+            padding-left:20px;
+        }
+    }
+    .flexes-megamenu:hover .arrow-headformegamenu{
+        transform: rotate(180deg);
+    }
+
+    .menu-column ul li a {
+          text-decoration: none; 
+          position: relative;
+          padding-bottom: 2px; 
+        }
+    .menu-column ul li a:hover::after {
+          width: 100%; 
+        }
+    
+       .menu-column ul li a::after {
+          content: ''; 
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0; 
+          height: 2px;
+          background-color: #000;
+          transition: width 0.3s ease; 
+        }
+    
+    
+    
+    </style>     
+         
+         <section class="firstheader">
+            <div class="custom-header">
+                <div class="middle-contains">
+                    <ul class="custom-menu">
+                        <li><a href="/">Home</a></li>
+                        <li class="has_megamenu flexes-megamenu" data-menu="about-hospital"><a href="#">About Us</a>
+                            <img class="arrow-headformegamenu" src="https://drgowd.dehydratechstudy.com/wp-content/uploads/2025/01/arrowhead.png"></li>
+                        <li class="has_megamenu flexes-megamenu" data-menu="services"><a href="https://drgowdsdental.com/services/">Services</a>
+                        <img class="arrow-headformegamenu" src="https://drgowd.dehydratechstudy.com/wp-content/uploads/2025/01/arrowhead.png">
+                        </li>
+                        <li class="has_megamenu flexes-megamenu" data-menu="treatments"><a href="https://drgowdsdental.com/treatments/">Treatments</a>
+                        <img class="arrow-headformegamenu" src="https://drgowd.dehydratechstudy.com/wp-content/uploads/2025/01/arrowhead.png"></li>
+                        <li class="has_megamenu flexes-megamenu" data-menu="patient-care"><a href="#">Patient Care</a>
+                        <img class="arrow-headformegamenu" src="https://drgowd.dehydratechstudy.com/wp-content/uploads/2025/01/arrowhead.png"></li>
+                        <li><a href="https://drgowdsdental.com/blogs/">Blogs</a></li>
+                        <li class="has_megamenu flexes-megamenu" data-menu="Our-Doctors"><a href="https://drgowdsdental.com/meet-our-doctors-team/">Our Doctors</a>
+                        <img class="arrow-headformegamenu" src="https://drgowd.dehydratechstudy.com/wp-content/uploads/2025/01/arrowhead.png"></li>
+                    </ul>
+                </div>
+    
+            <div class="for_megamenu">
+                <!-- Default mega menu content -->
+                <div class="custommenu-container-parent" id="services">
+                    <div class="custommenu-container">
+                        <!-- Teeth Column -->
+                        <div class="menu-column">
+                          <h5>Teeth</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/services/broken-teeth/" data-link="type-4">Broken Teeth</a></li>
+                            <li><a href="https://drgowdsdental.com/services/crooked-teeth/">Crooked Teeth</a></li>
+                            <li><a href="https://drgowdsdental.com/services/food-lodgement/">Food Lodgement</a></li>
+                            <li><a href="https://drgowdsdental.com/services/missing-tooth/">Missing Teeth</a></li>
+                            <li><a href="https://drgowdsdental.com/services/oral-cancers/">Oral Cancers and Tumours</a></li>
+                            <li><a href="https://drgowdsdental.com/services/">See more</a></li>
+                            
+                          </ul>
+                        </div>
+                    
+                        <!-- Gums Column -->
+                        <div class="menu-column">
+                          <h5>Gums</h5>
+                          <ul>
+                             <li><a href="https://drgowdsdental.com/services/bad-breath/">Bad Breath</a></li>
+                             <li><a href="https://drgowdsdental.com/services/dark-gums/">Dark Gums</a></li>
+                             <li><a href="https://drgowdsdental.com/services/gum-bleeding/">Gum Bleeding</a></li>
+                             <li><a href="https://drgowdsdental.com/services/gummy-smile/">Gummy Smile</a></li>
+                             <li><a href="https://drgowdsdental.com/services/loss-of-gum-tissue/">Loss Of Gum Tissue</a></li>
+                             <li><a href="https://drgowdsdental.com/services/">See more</a></li>
+                          </ul>
+                        </div>
+                    
+                        <!-- Cosmetic Dentistry Column -->
+                        <div class="menu-column">
+                          <h5>Cosmetic Dentistry</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/services/asymmetric-face/">Asymmetric Face</a></li>
+                            <li><a href="https://drgowdsdental.com/services/bad-bite/">Bad Bite</a></li>
+                            <li><a href="https://drgowdsdental.com/services/discoloured-teeth/">Discoloured Teeth</a></li>
+                            <li><a href="https://drgowdsdental.com/services/open-bite/">Open Bite</a></li>
+                            <li><a href="https://drgowdsdental.com/services/tooth-jewellery/">Tooth Jewellery</a></li>
+                          </ul>
+                        </div>
+                        <!-- Dummy Content Column -->
+                       <div class="menu-column">
+                          <h5>Other Services</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/services/child-dental-care/">Child Dental Care</a></li>
+                            <li><a href="https://drgowdsdental.com/services/teenage-dental-care/">Teenage Dental Care</a></li>
+                           
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+                <div class="custommenu-container-parent" id="treatments" style="display: none;">
+                    <div class="custommenu-container">
+                        <!-- Signature Treatments Column -->
+                        <div class="menu-column">
+                          <h5>Signature Treatments</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/treatments/dental-implants/">Dental Implants</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/full-mouth-rehabilitation/">Full Mouth Rehabilitation</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/invisalign-and-clear-aligners/">Invisalign and Clear Aligners</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/single-sitting-root-canal/">Single Sitting Root Canal</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/">See more</a></li>
+                          </ul>
+                        </div>
+                    
+                        <!-- All Treatments Column -->
+                        <div class="menu-column">
+                          <h5>All Treatments</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/treatments/bleaching/">Bleaching</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/braces/">Braces in Hyderabad</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/teeth-cleaning-and-polishing/">Teeth Cleaning and Polishing</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/dental-crowns/">Dental Crowns</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/dentures/">Dentures</a></li>
+                            <li><a href="https://drgowdsdental.com/treatments/">See more</a></li>
+                   
+                          </ul>
+                        </div>
+                    
+    
+               
+                      </div>
+                </div>
+                <div class="custommenu-container-parent" id="patient-care" style="display: none;">
+                    <div class="custommenu-container">
+                        <!-- Patient Care-->
+                        <div class="menu-column">
+                          <h5>Patient Care</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/before-and-after-images/">Before and After Gallery</a></li>
+                            <li><a href="https://drgowdsdental.com/patient-testimonials/">Patient Testimonial</a></li>
+                            <li><a href="https://drgowdsdental.com/dental-finance/">Dental Finance</a></li>
+                            <li><a href="https://drgowdsdental.com/celebrityvisits/">Celebrity Visits</a></li>
+                          </ul>
+                        </div>
+                    
+                        <div class="menu-column">
+                          <h5>International Patients Care</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/india-for-dental-treatments/">India for Dental Treatments</a></li>
+                            <li><a href="https://drgowdsdental.com/what-international-patients-says/">What International Patients Say?</a></li>
+                            <li><a href="https://drgowdsdental.com/why-dr-gowds-dental/">Dental Tourism</a></li>
+                            <li><a href="https://drgowdsdental.com/budget-cost/">Budget and Costs</a></li>
+                            <li><a href="https://drgowdsdental.com/how-to-plan-your-trip/">How to plan Your Trip</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+                <div class="custommenu-container-parent" id="about-hospital" style="display: none;">
+                    <div class="custommenu-container">
+                        <div class="menu-column">
+                          <h5>About Hospital</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/advanced-facilities/">Advanced Facilities</a></li>
+                            <li><a href="https://drgowdsdental.com/clinics-images/">Clinic's Images</a></li>
+                            <li><a href="https://drgowdsdental.com/health-camps/">Health Camps</a></li>
+                          </ul>
+                        </div>
+                    <div class="menu-column">
+                          <h5>Our Branches</h5>
+                          <ul>
+                            <li><a href="https://drgowdsdental.com/dental-clinic-in-gachibowli/">Gachibowli</a></li>
+                            <li><a href="https://drgowdsdental.com/dental-clinic-in-madhapur/">Madhapur</a></li>
+                            <li><a href="https://drgowdsdental.com/dental-clinic-in-koti/">Koti</a></li>
+                            <li><a href="https://drgowdsdental.com/dental-clinic-in-puppalaguda/">Puppalaguda</a></li>
+                          </ul>
+                        </div>                 
+                      </div>
+                </div>
+                 <div class="custommenu-container-parent" id="Our-Doctors" style="display: none;">
+                    <div class="custommenu-container">
+                        <!-- Our Doctors Column -->
+                        <div class="menu-column">
+                          <ul>
+                             <li><a href="https://drgowdsdental.com/meet-prof-dr-m-s-gowd/">Prof. Dr. M.S. Gowd</a></li>
+                            <li><a href="https://drgowdsdental.com/prof-dr-snigdha-gowd/">Prof. Dr. Snigdha Gowd</a></li>
+                            <li><a href="https://drgowdsdental.com/meet-prof-dr-t-shankar/">Prof. Dr. T. Shankar</a></li>
+                          </ul>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+    
+    <script>
+console.log('scripts are loading');
+
+const megamenu = document.querySelector('.for_megamenu');
+const megamenuItems = document.querySelectorAll('.has_megamenu');
+const menus = document.querySelectorAll('.custommenu-container-parent');
+let isToggled = false;
+let closeTimeout;
+
+// Function to open the megamenu with dynamic content
+function openMegamenu(item) {
+    const targetMenu = item.getAttribute('data-menu');
+    menus.forEach((menu) => {
+        menu.style.display = 'none';
+    });
+    document.getElementById(targetMenu).style.display = 'block';
+
+    if (!isToggled) {
+        isToggled = true;
+        clearTimeout(closeTimeout);
+        megamenu.style.height = "60vh";
+        megamenu.style.opacity = '1';
+    }
+}
+
+// Function to close the megamenu
+function closeMegamenu() {
+    if (isToggled) {
+        megamenu.style.height = '0';
+        megamenu.style.opacity = '0';
+        isToggled = false;
+    }
+}
+
+// Event listeners for mouseover and mouseleave
+megamenuItems.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+        clearTimeout(closeTimeout);
+        openMegamenu(item);
+    });
+    item.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(closeMegamenu, 300);
+    });
+});
+
+megamenu.addEventListener('mouseover', () => {
+    clearTimeout(closeTimeout);
+});
+megamenu.addEventListener('mouseleave', () => {
+    closeTimeout = setTimeout(closeMegamenu, 300);
+});
+
+/* ---------- Desktop Submenu Navigation ---------- */
+const pageHeader = document.querySelector(".page-header");
+const menuWrapper = pageHeader.querySelector(".menu-wrapper");
+const level1Links = pageHeader.querySelectorAll(".level-1 > li > a");
+const listWrapper2 = pageHeader.querySelector(".list-wrapper:nth-child(2)");
+const listWrapper3 = pageHeader.querySelector(".list-wrapper:nth-child(3)");
+const subMenuWrapper2 = listWrapper2.querySelector(".sub-menu-wrapper");
+const subMenuWrapper3 = listWrapper3.querySelector(".sub-menu-wrapper");
+const backOneLevelBtns = pageHeader.querySelectorAll(".back-one-level");
+const isVisibleClass = "is-visible";
+const isActiveClass = "is-active";
+
+// For opening submenu (level 1 to level 2)
+for (const level1Link of level1Links) {
+    level1Link.addEventListener("click", function (e) {
+        const siblingList = level1Link.nextElementSibling;
+        if (siblingList) {
+            e.preventDefault();
+            this.classList.add(isActiveClass);
+            const cloneSiblingList = siblingList.cloneNode(true);
+            subMenuWrapper2.innerHTML = "";
+            subMenuWrapper2.append(cloneSiblingList);
+            listWrapper2.classList.add(isVisibleClass);
+        }
+    });
+}
+
+// For opening submenu (level 2 to level 3)
+listWrapper2.addEventListener("click", function (e) {
+    const target = e.target;
+    if (target.tagName.toLowerCase() === "a" && target.nextElementSibling) {
+        const siblingList = target.nextElementSibling;
+        e.preventDefault();
+        target.classList.add(isActiveClass);
+        const cloneSiblingList = siblingList.cloneNode(true);
+        subMenuWrapper3.innerHTML = "";
+        subMenuWrapper3.append(cloneSiblingList);
+        listWrapper3.classList.add(isVisibleClass);
+    }
+});
+
+// For going back to previous level
+for (const backOneLevelBtn of backOneLevelBtns) {
+    backOneLevelBtn.addEventListener("click", function () {
+        const parent = this.closest(".list-wrapper");
+        parent.classList.remove(isVisibleClass);
+        parent.previousElementSibling
+            .querySelector(".is-active")
+            .classList.remove(isActiveClass);
+    });
+}
+</script>
+
+    
+      
