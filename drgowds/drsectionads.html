@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctors Section</title>
+
+    <!-- SwiperJS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        .card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-bottom: 40px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 32%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .card img {
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            text-align: left;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .button-group a {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .book-appointment {
+            border: 1px solid #2c203f;
+            color: #2c203f;
+            background: #fff;
+        }
+
+        .visit-hospital {
+            background: #2c203f;
+            color: #fff;
+            border: none;
+        }
+
+        .visit-hospital:hover {
+            background: #1a102b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-container {
+                display: none;
+            }
+
+            .swiper-slide .card {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .swiper {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Desktop View -->
+    <div class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <img src="https://drgowds.com/wp-content/uploads/2025/03/Ms-gowd-svg.svg" alt="Prof. Dr. M.S. Gowd" />
+                <div class="card-title">
+                    <h3>Prof. Dr. M.S. Gowd</h3>
+                    <p>
+                        Founder & Director of Dr Gowds Dental<br />A master in Dentistry for 40 years, Fellow American
+                        Academy
+                        of Cosmetic Dentistry, and Consultant Dentist to the Governor of A.P. for the last 17 years.
+                    </p>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="#" class="book-appointment">Book Appointment</a>
+                <a href="#" class="visit-hospital">Visit Hospital</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <img src="https://drgowds.com/wp-content/uploads/2025/03/Ms-Snigdha-gowd.png"
+                    alt="Prof. Dr. M.S. Gowd" />
+                <div class="card-title">
+                    <h3>Prof. Dr. Snigdha Gowd</h3>
+                    <p>
+                        Chairman and CEO of Dr. Gowds Dental Hospital and Specialist in Orthodontics. Designing smiles
+                        for 24 years.
+                        Dr. Snigdha is the Kalinga Institute of Dental Sciences (KIDS) Prof.
+                    </p>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="#" class="book-appointment">Book Appointment</a>
+                <a href="#" class="visit-hospital">Visit Hospital</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <img src="https://drgowds.com/wp-content/uploads/2025/03/dr-shankar.webp" alt="Prof. Dr. M.S. Gowd" />
+                <div class="card-title">
+                    <h3>Prof. Dr. T. Shankar</h3>
+                    <p>
+                        Founder Member & Director at School of Dental Implants Specialised in Oral and Maxillofacial
+                        Prosthodontics. Chief Cosmetic Dental Implantologist.
+                    </p>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="#" class="book-appointment">Book Appointment</a>
+                <a href="#" class="visit-hospital">Visit Hospital</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Carousel View -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="https://drgowds.com/wp-content/uploads/2025/03/Ms-gowd-svg.svg"
+                            alt="Prof. Dr. M.S. Gowd" />
+                        <div class="card-title">
+                            <h3>Prof. Dr. M.S. Gowd</h3>
+                            <p>
+                                Founder & Director of Dr Gowds Dental<br />A master in Dentistry for 40 years, Fellow
+                                American
+                                Academy of Cosmetic Dentistry, and Consultant Dentist to the Governor of A.P. for the
+                                last 17 years.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a href="#" class="book-appointment">Book Appointment</a>
+                        <a href="#" class="visit-hospital">Visit Hospital</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="https://drgowds.com/wp-content/uploads/2025/03/Ms-Snigdha-gowd.png"
+                            alt="Prof. Dr. M.S. Gowd" />
+                        <div class="card-title">
+                            <h3>Prof. Dr. Snigdha Gowd</h3>
+                            <p>
+                                Chairman and CEO of Dr. Gowds Dental Hospital and Specialist in Orthodontics. Designing
+                                smiles for 24 years.
+                                Dr. Snigdha is the Kalinga Institute of Dental Sciences (KIDS) Prof.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a href="#" class="popup-lp book-appointment">Book Appointment</a>
+                        <a href="#" class="visit-hospital">Visit Hospital</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="https://drgowds.com/wp-content/uploads/2025/03/dr-shankar.webp"
+                            alt="Prof. Dr. M.S. Gowd" />
+                        <div class="card-title">
+                            <h3>Prof. Dr. T. Shankar</h3>
+                            <p>
+                                Founder Member & Director at School of Dental Implants Specialised in Oral and
+                                Maxillofacial Prosthodontics. Chief Cosmetic Dental Implantologist.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a href="#" class="popup-lp book-appointment">Book Appointment</a>
+                        <a href="#" class="visit-hospital">Visit Hospital</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SwiperJS Script -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+
+</html>
