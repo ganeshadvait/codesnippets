@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Treatment UI</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "DM Sans", Arial, sans-serif;
+      }
+      .treatment-ui {
+        width: 90%;
+        height: fit-content;
+        padding: 20px;
+        border: 1px solid #dadada;
+        border-radius: 20px;
+        margin: auto;
+      }
+      .flex__boxes__treatmet {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+      }
+      .contents__lefts__right {
+        width: 30%;
+        min-width: 25%;
+        max-width: 25%;
+        border-right: 1px solid #dadada;
+        padding-right: 14px;
+      }
+      .contents__right {
+        width: 100%;
+        height: 100%;
+      }
+      .departments___name {
+        color: #915097;
+        font-weight: bold;
+      }
+      .department___listitem {
+        background: #f9c7fe38;
+        cursor: pointer;
+        margin: 8px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+      }
+      .department___listitem__for__doctors {
+        background: #f9c7fe38;
+        cursor: pointer;
+        margin: 8px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+      }
+      .department___listitem:hover {
+        background: #f9c7fe;
+      }
+      .for__department__hover__things {
+        width: 100%;
+        height: fit-content;
+        max-width: 100%;
+        min-height: 100%;
+        position: relative;
+      }
+      .sub__department__item {
+        background: #f6f6f6;
+        padding: 20px;
+        border-radius: 12px;
+
+        display: flex;
+      }
+      .sub__department__item:hover {
+        background: #e0f0ff;
+        cursor: pointer;
+      }
+      .inside__parent__box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding: 8px;
+        background: #fff;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+      }
+      .sub__department__item > p {
+        font-size: 16px;
+      }
+      .right__view___more {
+        position: absolute;
+        right: 10px;
+        bottom: -40px;
+      }
+      .department-boxes > div {
+        display: none;
+      }
+
+      .department-boxes > div.active {
+        display: block;
+      }
+      .flexx___box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .flex__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        padding-left: 14px;
+      }
+      .doctor-card {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #dadada;
+        border-radius: 18px;
+        padding: 20px;
+
+        width: 48%;
+      }
+
+      .doctor-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      .doctor-info {
+        flex: 1;
+      }
+
+      .doctor-info h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #2c2c54;
+      }
+
+      .doctor-info p {
+        margin: 4px 0;
+        font-size: 0.95rem;
+        color: #777;
+      }
+
+      .experience {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #000;
+      }
+      .no__position__need {
+        position: relative;
+        justify-content: flex-end;
+        display: flex;
+      }
+      .contents__right > section {
+        display: none;
+      }
+      .contents__right > section.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="treatment-ui">
+      <div class="flex__boxes__treatmet">
+        <div class="contents__lefts__right">
+          <ul id="departments-list">
+            <li
+              class="department___listitem"
+              data-target="for__proctology__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/Procto.webp"
+                  alt="Proctology Icon"
+                />
+                <span>Proctology</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__general__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/laparoscopic-surgery-1-1.webp"
+                  alt="General Surgery Icon"
+                />
+                <span>General and Laparoscopic</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__gynecology__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/gyneco-1.webp"
+                  alt="Gynecology Icon"
+                />
+                <span>Gynecology</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__urology__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/urology-1-1.webp"
+                  alt="Urology Icon"
+                />
+                <span>Urology</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__plastic__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/plastic-surgery-1.webp"
+                  alt="Plastic Surgery Icon"
+                />
+                <span>Plastic and Cosmetic</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__ent__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/ent-1.webp"
+                  alt="ENT Icon"
+                />
+                <span>ENT</span>
+              </div>
+            </li>
+            <li
+              class="department___listitem"
+              data-target="for__ortho__parent___box"
+            >
+              <div class="flexx___box">
+                <img
+                  src="https://luxhospitals.com/wp-content/uploads/2025/05/ortho-1.webp"
+                  alt="Orthopedic Icon"
+                />
+                <span>Orthopedic</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="contents__right department-boxes">
+          <!-- here list items will come first keep inside each department -->
+          <div
+            class="for__proctology__parent___box department-box for__department__hover__things active"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>Piles</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="for__general__parent___box department-box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>General</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="for__gynecology__parent___box department-box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected">
+                <p>Gynecology</p>
+              </div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="for__urology__parent___box department-box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>Urology</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="for__plastic__parent___box department-box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>Plastic</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="for__ent__parent___box department-box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>ENT</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="department-box for__ortho__parent___box for__department__hover__things"
+          >
+            <div class="inside__parent__box">
+              <div class="sub__department__item selected"><p>Ortho</p></div>
+              <div class="sub__department__item"><p>Anal Fistula</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+              <div class="sub__department__item"><p>Anal Fissures</p></div>
+            </div>
+            <div class="right__view___more">
+              <span>view More</span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                >
+                  <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="treatment-ui for__doctors">
+      <div class="flex__boxes__treatmet">
+        <div class="contents__lefts__right">
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__proctology__doctor___box"
+          >
+            Proctology
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__general__doctor___box"
+          >
+            General and Laparoscopic
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__gynecology__doctor___box"
+          >
+            Gynecology
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__urology__doctor___box"
+          >
+            Urology
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__plastic__doctor___box"
+          >
+            Plastic and Cosmetic
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__ent__doctor___box"
+          >
+            ENT
+          </li>
+          <li
+            class="department___listitem__for__doctors"
+            data-target="for__orthopedic__doctor___box"
+          >
+            Orthopedic
+          </li>
+        </div>
+        <div class="contents__right department-boxes">
+          <section class="for__proctology__doctor___box active">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Proctology</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__general__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>General</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__gynecology__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Gynecology</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__urology__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Urology</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__plastic__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Plastic</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__ent__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>End</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="for__orthopedic__doctor___box">
+            <section class="flex__grid">
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Ortho</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+              <div class="doctor-card">
+                <img
+                  src="https://luxhospitals.com/hyderabad/wp-content/uploads/2024/06/Jc4bui0TLAFPMNv8c6fG0epb74.avif"
+                  alt="Doctor Image"
+                />
+                <div class="doctor-info">
+                  <h2>Dr. Robert Henry</h2>
+                  <p>MBBS, MS, FMAS, FISCP, DMAS</p>
+                  <p>Colorectal Surgeon & Proctologist</p>
+                  <p>Speciality : Piles</p>
+                  <div class="experience">Experience : 8 Years</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="right__view___more no__position__need">
+            <span>view More</span>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 16 16"
+              >
+                <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
+              </svg>
+            </span>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script>
+      //for treatmenttabs menu hover changing tabs
+      const listItems = document.querySelectorAll(".department___listitem");
+      const departmentBoxes = document.querySelectorAll(".department-box");
+
+      listItems.forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          const targetClass = item.getAttribute("data-target");
+
+          // Remove 'active' from all boxes
+          departmentBoxes.forEach((box) => box.classList.remove("active"));
+
+          // Add 'active' to selected box
+          const targetBox = document.querySelector("." + targetClass);
+          if (targetBox) targetBox.classList.add("active");
+
+          // Highlight selected list item
+          listItems.forEach((li) => li.classList.remove("selected"));
+          item.classList.add("selected");
+        });
+      });
+
+      // Optionally activate the first department on load
+      document
+        .querySelector(".department___listitem")
+        ?.dispatchEvent(new Event("mouseover"));
+
+      //for doctors menu tabs
+
+      const doctorListItems = document.querySelectorAll(
+        ".department___listitem__for__doctors"
+      );
+      const doctorBoxes = document.querySelectorAll(
+        ".contents__right > section"
+      );
+
+      doctorListItems.forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          const targetClass = item.getAttribute("data-target");
+
+          // Remove 'active' from all doctor boxes
+          doctorBoxes.forEach((box) => box.classList.remove("active"));
+
+          // Add 'active' to selected doctor box
+          const targetBox = document.querySelector("." + targetClass);
+          if (targetBox) targetBox.classList.add("active");
+
+          // Highlight selected list item
+          doctorListItems.forEach((li) => li.classList.remove("selected"));
+          item.classList.add("selected");
+        });
+      });
+
+      // Optionally activate the first doctor tab on load
+      document
+        .querySelector(".department___listitem__for__doctors")
+        ?.dispatchEvent(new Event("mouseover"));
+    </script>
+  </body>
+</html>
