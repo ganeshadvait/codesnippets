@@ -1,0 +1,106 @@
+
+<style>
+    .mobile-sticky-footer-wrapper {
+      margin: 0;
+      font-family: sans-serif;
+      padding-bottom: 70px; /* prevent content being hidden behind buttons */
+      box-sizing: border-box;
+    }
+
+    .mobile-sticky-footer-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      background: white;
+      padding: 12px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+
+    .mobile-sticky-footer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 400;
+      text-decoration: none;
+      font-size: 12px;
+      flex: 1 1 45%;
+      min-width: 140px;
+      max-width: 200px;
+      text-align: center;
+      box-sizing: border-box;
+      color: white !important;
+    }
+
+    .mobile-sticky-footer-blue {
+      background-color: #1a73e8;
+    }
+
+    .mobile-sticky-footer-green {
+      background-color: #25D366;
+    }
+
+    .mobile-sticky-footer-btn .mobile-sticky-footer-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-sticky-footer-container {
+        justify-content: center;
+      }
+
+      .mobile-sticky-footer-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+        max-width: none;
+        flex: 0 0 auto;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .mobile-sticky-footer-btn {
+        font-size: 11px;
+        padding: 9px 12px;
+      }
+
+      .mobile-sticky-footer-container {
+        gap: 4px;
+      }
+    }
+    @media (min-width:450px) {
+        .mobile-sticky-footer-wrapper{
+            display: none;
+        }
+        
+    }
+    .mobile-sticky-footer-btn.mobile-sticky-footer-green {
+  line-height: 1.0;
+}
+  </style>
+<body>
+
+  <div class="mobile-sticky-footer-container">
+      <a href="https://maps.app.goo.gl/TCgMkRWipkxXEDmS9" class="mobile-sticky-footer-btn mobile-sticky-footer-blue">
+        <img src="https://www.gutcareclinics.com/wp-content/uploads/2025/03/google.svg" alt="Google" class="mobile-sticky-footer-icon">
+        Google Reviews
+      </a>
+      <a href="tel:+918431550550" class="mobile-sticky-footer-btn mobile-sticky-footer-green">
+        <img src="https://drgowdsdental.com/wp-content/uploads/2025/03/zondicons_calendar.svg" alt="Calendar" class="mobile-sticky-footer-icon">
+        Book Appointment
+      </a>
+    </div>
+  </div>
+
+</body>

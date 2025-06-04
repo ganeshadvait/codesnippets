@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .formgowds-input-group {
+        position: relative;
+      }
+
+      .formgowds-input,
+      .formgowds-number-input {
+        border: solid 1.5px #90bcd2;
+        border-radius: 9rem !important;
+        background: none;
+        padding: 1rem;
+        font-size: 1rem;
+        color: #f5f5f5;
+        transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .formgowds-user-label {
+        position: absolute;
+        left: 15px;
+        color: #e8e8e8;
+        pointer-events: none;
+        transform: translateY(1rem);
+        transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .formgowds-input:focus,
+      .formgowds-input:valid,
+      .formgowds-number-input:focus,
+      .formgowds-number-input:valid {
+        outline: none;
+        border: 1.5px solid #000000;
+        color: #000;
+      }
+
+      .formgowds-input:focus ~ .formgowds-user-label,
+      .formgowds-input:valid ~ .formgowds-user-label,
+      .formgowds-number-input:focus ~ .formgowds-user-label,
+      .formgowds-number-input:valid ~ .formgowds-user-label {
+        transform: translateY(-50%) scale(0.8);
+        background-color: #fff;
+        padding: 0 0.2em;
+        color: #000;
+      }
+
+      .formgowds-c-formsubmit {
+        border-radius: 9rem;
+        padding: 1rem;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        background: #90bcd2;
+      }
+
+      .formgowds-c-form {
+        cursor: pointer;
+        background-color: #f6f6f6;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        border-radius: 20px;
+      }
+
+      .formgowds-c-form div:nth-child(1),
+      .formgowds-c-form div:nth-child(2) {
+        margin-bottom: 10px;
+      }
+
+      .formgowds-successmessage,
+      .formgowds-error,
+      .formgowds-invalid-phone {
+        display: none;
+      }
+
+      .formgowds-invalid-phone {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="formgowds-c-form">
+      <p style="margin-bottom: 5px; font-size: 20px;">Speak with Our Expert</p>
+      <div class="formgowds-input-group">
+        <input required type="text" name="text" autocomplete="off" class="formgowds-input" />
+        <label class="formgowds-user-label">Name</label>
+      </div>
+
+      <div class="formgowds-input-group">
+        <input
+          required
+          type="text"
+          name="number"
+          id="formgowds-phone-number"
+          autocomplete="off"
+          class="formgowds-number-input"
+        />
+        <label class="formgowds-user-label">Number</label>
+      </div>
+
+      <button type="button" class="formgowds-c-formsubmit" onclick="formgowds_validateForm()">Submit</button>
+
+      <p class="formgowds-successmessage">Thank you for submitting, we will get back to you.</p>
+      <p class="formgowds-error">An error occurred, please try again.</p>
+      <p class="formgowds-invalid-phone">Invalid phone number</p>
+    </section>
+
+    <script>
+      function formgowds_validateForm() {
+        const phoneNumber = document.getElementById("formgowds-phone-number").value;
+        const successMessage = document.querySelector(".formgowds-successmessage");
+        const errorMessage = document.querySelector(".formgowds-error");
+        const invalidPhoneMessage = document.querySelector(".formgowds-invalid-phone");
+
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+        invalidPhoneMessage.style.display = "none";
+
+        if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
+          invalidPhoneMessage.style.display = "block";
+        } else {
+          successMessage.style.display = "block";
+        }
+      }
+
+      document.querySelector(".formgowds-c-formsubmit").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const nameInput = document.querySelector(".formgowds-input");
+        const numberInput = document.querySelector(".formgowds-number-input");
+        const successMessage = document.querySelector(".formgowds-successmessage");
+        const errorMessage = document.querySelector(".formgowds-error");
+
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(numberInput.value.trim())) {
+          errorMessage.style.display = "block";
+          successMessage.style.display = "none";
+          return;
+        } else {
+          errorMessage.style.display = "none";
+        }
+
+        const LeadData = {
+          Last_Name: nameInput.value,
+          Phone: numberInput.value,
+          Form_Type: "Book an Appointment",
+          Lead_Source: "Website Form",
+          Page_URL: window.location.href,
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const gclid = urlParams.get("gclid") || "";
+        const fbclid = urlParams.get("fbclid") || "";
+        LeadData["clid"] = [gclid, fbclid].filter(Boolean).join("|");
+
+        LeadData["UTM_Term"] = urlParams.get("utm_term") || "";
+        LeadData["UTM_Content"] = urlParams.get("utm_content") || "";
+        LeadData["UTM_Medium"] = urlParams.get("utm_medium") || "";
+        LeadData["UTM_Campaign"] = urlParams.get("utm_campaign") || "";
+        LeadData["UTM_Source"] = urlParams.get("utm_source") || "";
+        LeadData["UTM_Platform"] = urlParams.get("utm_platform") || "";
+        LeadData["UTM_Device"] = urlParams.get("utm_device") || "";
+
+        console.log("Lead data", LeadData);
+
+        async function sendToZoho() {
+          const zohoUrl = "https://abl0a70bx9.execute-api.ap-south-1.amazonaws.com/Prod/create-lead";
+
+          try {
+            const response = await fetch(zohoUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(LeadData),
+            });
+
+            if (response.ok) {
+              const result = await response.json();
+              console.log("Successfully sent to Zoho:", result);
+              numberInput.value = "";
+              nameInput.value = "";
+              successMessage.style.display = "flex";
+              sendToZapier(LeadData);
+            } else {
+              console.error("Failed to send to Zoho. Status:", response.status);
+              throw new Error("Zoho request failed");
+            }
+          } catch (error) {
+            console.error("Error with Zoho request:", error);
+            sendToZapier(LeadData);
+          }
+        }
+
+        function sendToZapier(leadData) {
+          const zapierUrl = "https://hooks.zapier.com/hooks/catch/20814971/281t3lc/";
+          const urlSearchParams = new URLSearchParams(leadData);
+          const requestBody = urlSearchParams.toString();
+
+          const request = new XMLHttpRequest();
+          request.open("POST", zapierUrl, true);
+          request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+          request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                console.log("Successfully sent to Zapier");
+                numberInput.value = "";
+                successMessage.style.display = "flex";
+              } else {
+                console.error("Error sending data to Zapier:", request.status);
+                alert("Failed to send data to both Zoho and Zapier. Please try again.");
+              }
+            }
+          };
+
+          request.send(requestBody);
+        }
+
+        function sendtoGsheet() {
+          fetch("https://sheetdb.io/api/v1/goink9rv5f9tp", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              data: [
+                {
+                  name: nameInput.value,
+                  phone: numberInput.value,
+                  time: new Date().toLocaleTimeString(),
+                  date: new Date().toLocaleDateString(),
+                  url: window.location.href,
+                },
+              ],
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log("Data sent successfully:", data))
+            .catch((error) => console.error("Error sending data:", error));
+        }
+
+        sendToZoho();
+        sendtoGsheet();
+      });
+    </script>
+  </body>
+</html>

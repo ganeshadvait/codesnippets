@@ -40,7 +40,7 @@
     /*=============== HEADER ===============*/
     .luxmain__header {
       position: relative;
-      width: 97%;
+      width: 96.5%;
       height: var(--header-height);
       background-color: #fff;
       box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
@@ -257,7 +257,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 5px;
     }
 
     .nav__logo .logo {
@@ -265,26 +264,12 @@
     }
 
     .logo_two {
-      width: 70px;
-      margin-left: 10px;
-    }
-    @media (max-width: 768px) {
-      .logo_two {
-        width: 50px;
-        margin-left: 1px;
-      }
-      
+      width: 45px;
     }
 
     .logo_three {
       width: 70px;
       margin-left: 10px;
-    }
-    @media (max-width: 768px) {
-      .logo_three {
-      width: 50px;
-      margin-left: 1px;
-    }
     }
 
     .logo__Parts {
@@ -335,11 +320,11 @@
       width: 1340px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      /* gap: 20px; */
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
       padding: 10px;
-      /* padding-top: 50px; */
-      padding-bottom: 100px;
+      padding-top: 50px;
+      padding-bottom: 300px;
       border-radius: 8px;
     }
 
@@ -347,8 +332,6 @@
       padding: 10px;
       border-radius: 5px;
       background-color: #fff;
-      width: 260px;
-      flex-shrink: 0;
     }
 
     .menu-column h5 {
@@ -366,8 +349,8 @@
     }
 
     .menu-column ul li {
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     .menu-column ul li a {
@@ -507,12 +490,37 @@
         padding-left: 10px !important;
       }
     } */
-
     .custommenu-container {
-      /* display: flex; */
-      overflow-x: auto;
-      overflow-y: hidden;
+      max-height: 100vh;
+      /* or a fixed height like 400px */
+      overflow-y: auto;
+      /* or scroll if you want it always visible */
+      scrollbar-width: auto;
+      /* Firefox - show default scrollbar */
+      -ms-overflow-style: auto;
+      /* IE and Edge */
     }
+
+    /* Optional: Style for Chrome, Safari, and Opera */
+    .custommenu-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custommenu-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .custommenu-container::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 8px;
+    }
+
+    .custommenu-container::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+
+
 
     @media (max-width: 768px) {
       .menu-column:nth-child(5) h5 {
@@ -797,40 +805,6 @@
       }
     }
 
-    .menu-column ul li {
-      padding: 10px 15px;
-      /* Top-Bottom: 10px, Left-Right: 15px */
-      border-radius: 4px;
-      /* Optional: rounded corners */
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-      /* Optional: cursor pointer for UX */
-    }
-
-    .menu-column ul li:hover {
-      background-color: #e0f0ff;
-      /* Light blue */
-    }
-
-    .menu-column h5 a {
-      display: block;
-      /* Makes the padding and hover cover the full area */
-      padding: 10px 15px;
-      /* Consistent padding */
-      border-radius: 4px;
-      /* Optional rounded corners */
-      text-decoration: none;
-      /* Remove underline */
-      color: inherit;
-      /* Inherit text color */
-      transition: background-color 0.3s ease;
-    }
-
-    .menu-column h5 a:hover {
-      background-color: #e0f0ff;
-      /* Light blue hover effect */
-    }
-
     /* Dropdown menus are hidden by default */
     .dropdown__menu,
     .dropdown__submenu {
@@ -843,9 +817,8 @@
     /* Positioning (adjust as needed) */
     .dropdown__menu {
       position: absolute;
-      top: 170%;
+      top: 100%;
       left: 0;
-      border-radius: 10px;
     }
 
     .dropdown__submenu {
@@ -894,7 +867,7 @@
       }
 
       .call_icon {
-        width: 30px;
+        /* width: 20px; */
         height: 30px;
       }
 
@@ -929,55 +902,6 @@
       color: #000;
       /* black */
     }
-
-
-    .view-all-link {
-    color: #007BFF !important;          /* Blue color for the link */
-    text-decoration: none;   /* Remove underline */
-    font-weight: 500;        /* Optional: to make it slightly bolder */
-    transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.view-all-link:hover {
-    color: #0056b3;          /* Darker 
-    blue on hover */
-}
-
-/*.custommenu-container{*/
-/*    overscroll-behavior: contain;*/
-/*}*/
-    .flex_call{
-      margin: auto;
-      margin-right: 10px;
-    }
-    @media (max-width: 376px) {
-      .header-toggle {
-        margin-left: 0px;
-    }
-      
-    }
-
-    .sub-menu {
-    list-style: none;       /* Remove all bullet points from sub-menus */
-    padding-left: 0;        /* Optional: remove left indentation */
-    margin: 0;
-}
-
-.sub-menu li {
-    list-style: none;       /* Ensure no bullets on list items */
-}
-.Emergency_ctas {
-    background-color: #ebdaf0;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-top: 10px;
-}
-.Emergency_ctas p {
-    margin-bottom: 0;
-}
-
-
   </style>
 </head>
 
@@ -990,17 +914,17 @@
             <img class="logo" src="https://luxhospitals.com/wp-content/uploads/2025/04/converted-14.avif" />
           </a>
           <a href="#" class="nav__logo">
-            <img class="logo_two" src="https://luxhospitals.com/wp-content/uploads/2025/05/isoshadow.webp" />
+            <img class="logo_two" src="https://luxhospitals.com/wp-content/uploads/2025/04/iso-gold-logo-NEW.png" />
           </a>
           <a href="#" class="nav__logo">
-            <img class="logo_three" src="https://luxhospitals.com/wp-content/uploads/2025/05/nabhshodow.webp" />
+            <img class="logo_three" src="https://book.luxhospitals.com/TRAIL.svg" />
           </a>
         </div>
       </div>
       <div class="menu__part">
         <div class="middle-contains">
           <ul class="custom-menu">
-            <!--<li><a href="/">Home</a></li>-->
+            <li><a href="/">Home</a></li>
 
             <ul class="custom-menu">
               <li class="dropdown__item">
@@ -1022,8 +946,7 @@
                       </svg>
                     </div>
                     <ul class="dropdown__submenu">
-                      <li><a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-samhitha-reddy/">Dr Samhitha Reddy</a></li>
-                      <li><a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-abhishek-katha/">Dr Abhishek Katha</a></li>
+                      <li><a href="#">Dr Samhitha Reddy</a></li>
                     </ul>
                   </li>
 
@@ -1036,8 +959,7 @@
                       </svg>
                     </div>
                     <ul class="dropdown__submenu">
-                      <li><a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-abhishek-katha/">Dr Abhishek Katha</a></li>
-                      <li><a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-samhitha-reddy/">Dr Samhitha Reddy</a></li>
+                      <li><a href="#">Dr Abhishek Katha</a></li>
                     </ul>
                   </li>
 
@@ -1050,8 +972,8 @@
                       </svg>
                     </div>
                     <ul class="dropdown__submenu">
-                      <li><a href="https://luxhospitals.com/specialities/doctors/dr-priyank-ashokkumar-salecha/">Dr Priyank Ashokkumar Salecha</a></li>
-                      <li><a href="https://luxhospitals.com/specialities/doctors/dr-aditya-potla/">Dr Aditya Potla</a></li>
+                      <li><a href="#">Dr Priyank Ashokkumar Salecha</a></li>
+                      <li><a href="#">Dr Aditya Potla</a></li>
                     </ul>
                   </li>
 
@@ -1064,8 +986,7 @@
                       </svg>
                     </div>
                     <ul class="dropdown__submenu">
-                      <li><a href="#">Dr Pragnia P</a></li>
-                      <li><a href="https://luxhospitals.com/dr-harshita-kakarla/">Dr Harshita Kakarla</a></li>
+                      <li><a href="#">Dr Harshita Kakarla</a></li>
                     </ul>
                   </li>
 
@@ -1078,19 +999,7 @@
                       </svg>
                     </div>
                     <ul class="dropdown__submenu">
-                      <li><a href="#">Dr Ram Prabhu</a></li>
-                      <li><a href="https://luxhospitals.com/specialities/doctors/in-hyderabad/dr-chandana-guduru/">Dr Chandana Guduru</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown__subitem">
-                    <div class="dropdown__link">
-                      <p style="margin: 0">Orthopedic</p>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M13.5 5.5 8 11 2.5 5.5" />
-                      </svg>
-                    </div>
-                    <ul class="dropdown__submenu">
-                      <li><a href="#">Dr. Sai Kishan Sirasala</a></li>
+                      <li><a href="#">Dr Chandana Guduru</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -1135,8 +1044,7 @@
         </div>
       </div>
       <div class="ctas___part">
-        <!--<a class="header_button" href="https://wa.me/917969084444" target="_blank">-->
-         <a class="header_button" href="tel:917969084444" target="_blank">
+        <a class="header_button" href="https://wa.me/917969084444" target="_blank">
           <span class="call_icon">
             <img class="call_icon"
               src="https://test.luxhospitals.com/wp-content/uploads/2025/03/mingcute_phone-call-line.webp" />
@@ -1179,10 +1087,7 @@
             <li>
               <a href="https://luxhospitals.com/specialities/proctology/anal-fissure-treatment/">Anal Fissures</a>
             </li>
-            <!-- <li>
-              <a href="https://luxhospitals.com/specialities/proctology/anal-fissure-treatment/">Cronic Constipation</a>
-            </li> -->
-            <!-- <li>
+            <li>
               <a href="https://luxhospitals.com/specialities/proctology/rectal-prolapse-treatment/">Rectal & Pelvic
                 Prolapse</a>
             </li>
@@ -1192,16 +1097,16 @@
             </li>
             <li>
               <a href="https://luxhospitals.com/specialities/proctology/pilonidal-sinus-treatment/">Pilonidal Sinus</a>
-            </li> -->
-            <!-- <li>
+            </li>
+            <li>
               <a href="https://luxhospitals.com/specialities/proctology/inflammatory-bowel-disease-treatment/">IBD –
                 Inflammatory Bowel Disease</a>
             </li>
             <li>
               <a href="https://luxhospitals.com/specialities/proctology/irritable-bowel-syndrome-treatment/">IBS –
                 Irritable Bowel Syndrome</a>
-            </li> -->
-            <!-- <li>
+            </li>
+            <li>
               <a href="https://luxhospitals.com/specialities/proctology/chronic-constipation-treatment/">Chronic
                 Constipation</a>
             </li>
@@ -1223,43 +1128,24 @@
             <li>
               <a href="https://luxhospitals.com/specialities/proctology/ulcerative-colitis-treatment/">Ulcerative
                 Colitis</a>
-            </li> -->
-            <li>
-              <a href="https://luxhospitals.com/specialities/proctology/" class="view-all-link">
-                View All
-              </a>
             </li>
           </ul>
         </div>
         <div class="menu-column">
-          <h5><a href="https://luxhospitals.com/specialities/general-laparoscopic/">General and Laparoscopic</a>
+          <h5><a href="https://luxhospitals.com/specialities/general-laparoscopic/">General and Laparoscopic Surgery</a>
           </h5>
           <ul class="sub-menu level-3">
             <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/hernia-treatment/">Hernia</a>
             </li>
             <li>
+              <a href="https://luxhospitals.com/specialities/general-laparoscopic/gallbladder-stones-treatment/">Gallstone
+                / Gallbladder disorders</a>
+            </li>
+            <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/appendix-treatment/">Appendix</a>
             </li>
             <li>
-              <a href="https://luxhospitals.com/specialities/general-laparoscopic/lipoma-treatment/">Lipomas</a>
-            </li>
-            <!-- <li>
-              <a href="https://luxhospitals.com/specialities/general-laparoscopic/cyst-treatment/">Cysts</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/general-laparoscopic/gallbladder-stones-treatment/">Gallstone
-                / Gallbladder</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/general-laparoscopic/varicose-veins-treatment/">Varicose
-                veins</a>
-            </li> -->
-            <li>
-              <a href="https://luxhospitals.com/specialities/general-laparoscopic/" class="view-all-link">View All</a>
-            </li>
-
-            <!-- <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/acid-reflux-treatment/">Acid Reflux or
                 GERD</a>
             </li>
@@ -1270,115 +1156,26 @@
             <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/breast-lump-surgery/">Breast Lumps</a>
             </li>
-            
-            
+            <li>
+              <a href="https://luxhospitals.com/specialities/general-laparoscopic/varicose-veins-treatment/">Varicose
+                veins</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/general-laparoscopic/lipoma-treatment/">Lipomas</a>
+            </li>
             <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/corn-removal-surgery/">Corn
                 removal</a>
             </li>
-            
+            <li>
+              <a href="https://luxhospitals.com/specialities/general-laparoscopic/cyst-treatment/">Cysts</a>
+            </li>
             <li>
               <a href="https://luxhospitals.com/specialities/general-laparoscopic/skin-tumours-treatment/">Skin
                 tumours</a>
-            </li> -->
+            </li>
           </ul>
         </div>
-
-        <div class="menu-column">
-          <h5><a href="https://luxhospitals.com/specialities/gynecological-disorders/">Gynecology</a></h5>
-          <ul class="sub-menu level-3">
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/polycystic-ovary-syndrome-treatment/">MTP</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/ovarian-cyst-treatment/">Ovarian
-                cysts</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/uterine-prolapse-treatment/">Uterine
-                fibroids</a>
-            </li>
-            <!-- <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/endometriosis-treatment/">Endometriosis</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/menstrual-disorders-treatments/">Menstrual
-                Disorders</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/polycystic-ovary-syndrome-treatment/">PCOS</a>
-            </li> -->
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/" class="view-all-link">View All</a>
-            </li>
-            <!-- <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/polycystic-ovary-syndrome-treatment/">Polycystic
-                ovary syndrome (PCOS)</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/pelvic-inflammatory-disease-treatment/">Pelvic
-                Inflammatory Disease (PID)</a>
-            </li>
-            
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/premenstrual-syndrome-treatments/">Premenstrual
-                Syndrome (PMS)</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/menstrual-disorders-treatments/">Menstrual
-                Disorders (menorrhagia, dysmenorrhea,
-                amenorrhea)</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/uterine-fibroids-treatment/">Fibroids</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/polyps-treatment/">Polyps</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/adenomyosis-treatment/">Adenomyosis</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/uterine-prolapse-treatment/">Uterine
-                prolapse</a>
-            </li>
-            
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/ovarian-torsion-treatment/">Ovarian
-                torsion</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/vulvodynia-treatment/">Vulvodynia
-                (chronic vulvar pain)</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/vaginal-yeast-infection-treatment/">Vaginal
-                infections</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/gynecological-disorders/vaginal-atrophy-treatment/">Vaginal
-                atrophy</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/dyspareunia-treatment/">Dyspareunia</a>
-            </li>
-            <li>
-              <a
-                href="https://luxhospitals.com/specialities/gynecological-disorders/premenstrual-dysphoric-disorder-treatment/">Premenstrual
-                Dysphoric Disorder (PMDD)</a>
-            </li> -->
-          </ul>
-        </div>
-
         <div class="menu-column">
           <h5><a href="https://luxhospitals.com/specialities/urology-andrology/">Urology</a></h5>
           <ul class="sub-menu level-3">
@@ -1387,29 +1184,8 @@
                 stones</a>
             </li>
             <li>
-              <a
-                href="https://luxhospitals.com/specialities/urology-andrology/kidney-stones-treatment/">Circumcision</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/urology-andrology/enlarged-prostate-treatment/">Enlarged
-                prostate </a>
-            </li>
-            <!-- <li>
-              <a href="https://luxhospitals.com/specialities/urology-andrology/hydrocele-treatment/">Hydrocele</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/urology-andrology/varicocele-treatment/">Varicocele</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/urology-andrology/bladder-prolapse-treatment/">Bladder
-                prolapse</a>
-            </li> -->
-            <li>
-              <a href="https://luxhospitals.com/specialities/urology-andrology/bladder-prolapse-treatment/" class="view-all-link">View All</a>
-            </li>
-            <!-- <li>
-            <a href="https://luxhospitals.com/specialities/urology-andrology/enlarged-prostate-treatment/">Prostatitis
-              (inflammation of the prostate)</a>
+              <a href="https://luxhospitals.com/specialities/urology-andrology/enlarged-prostate-treatment/">Prostatitis
+                (inflammation of the prostate)</a>
             </li>
             <li>
               <a href="https://luxhospitals.com/specialities/urology-andrology/urethral-stricture-treatment/">Urethral
@@ -1427,8 +1203,12 @@
               <a href="https://luxhospitals.com/specialities/urology-andrology/chronic-kidney-disease-treatment/">Chronic
                 kidney disease</a>
             </li>
-
-
+            <li>
+              <a href="https://luxhospitals.com/specialities/urology-andrology/varicocele-treatment/">Varicocele</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/urology-andrology/hydrocele-treatment/">Hydrocele</a>
+            </li>
             <li>
               <a href="https://luxhospitals.com/specialities/urology-andrology/urinary-incontinence-treatment/">Urinary
                 incontinence</a>
@@ -1475,16 +1255,91 @@
             <li>
               <a href="https://luxhospitals.com/specialities/urology-andrology/urethritis-treatment/">Urethritis</a>
             </li>
-
+            <li>
+              <a href="https://luxhospitals.com/specialities/urology-andrology/bladder-prolapse-treatment/">Bladder
+                prolapse</a>
+            </li>
             <li>
               <a href="https://luxhospitals.com/specialities/urology-andrology/hematuria-treatment/">Hematuria (blood in
                 the urine)</a>
-            </li> -->
+            </li>
           </ul>
         </div>
-
         <div class="menu-column">
-          <h5><a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/">Plastic and Cosmetic</a>
+          <h5><a href="https://luxhospitals.com/specialities/gynecological-disorders/">Gynecology</a></h5>
+          <ul class="sub-menu level-3">
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/polycystic-ovary-syndrome-treatment/">Polycystic
+                ovary syndrome (PCOS)</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/pelvic-inflammatory-disease-treatment/">Pelvic
+                Inflammatory Disease (PID)</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/endometriosis-treatment/">Endometriosis</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/premenstrual-syndrome-treatments/">Premenstrual
+                Syndrome (PMS)</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/menstrual-disorders-treatments/">Menstrual
+                Disorders (menorrhagia, dysmenorrhea,
+                amenorrhea)</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/uterine-fibroids-treatment/">Fibroids</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/polyps-treatment/">Polyps</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/adenomyosis-treatment/">Adenomyosis</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/uterine-prolapse-treatment/">Uterine
+                prolapse</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/ovarian-cyst-treatment/">Ovarian
+                cysts</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/ovarian-torsion-treatment/">Ovarian
+                torsion</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/vulvodynia-treatment/">Vulvodynia
+                (chronic vulvar pain)</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/vaginal-yeast-infection-treatment/">Vaginal
+                infections</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/gynecological-disorders/vaginal-atrophy-treatment/">Vaginal
+                atrophy</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/dyspareunia-treatment/">Dyspareunia</a>
+            </li>
+            <li>
+              <a
+                href="https://luxhospitals.com/specialities/gynecological-disorders/premenstrual-dysphoric-disorder-treatment/">Premenstrual
+                Dysphoric Disorder (PMDD)</a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-column">
+          <h5><a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/">Plastic and Cosmetic Surgery</a>
           </h5>
           <ul class="sub-menu level-3">
             <li>
@@ -1492,14 +1347,18 @@
                 href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/gynecomastia-surgery/">Gynecomastia</a>
             </li>
             <li>
+              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/tummy-tuck-surgery/">Tummy
+                Tuck</a>
+            </li>
+            <li>
+              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/eyelid-surgery/">Eyelid
+                Surgery</a>
+            </li>
+            <li>
               <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/liposuction-surgery/">Liposuction
                 Surgery</a>
             </li>
             <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/tummy-tuck-surgery/">Tummy
-                Tuck</a>
-            </li>
-            <!-- <li>
               <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/breast-augmentation-surgery/">Breast
                 Augmentation Surgery</a>
             </li>
@@ -1508,93 +1367,16 @@
                 Removal</a>
             </li>
             <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/double-chin-treatment/">Double
-                Chin Treatment</a>
-            </li>-->
-            <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/" class="view-all-link">View All</a>
-            </li>
-            <!-- <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/tummy-tuck-surgery/">Tummy
-                Tuck</a>
-            </li>
-            <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/eyelid-surgery/">Eyelid
-                Surgery</a>
-            </li>
-            
-            
-            
-            <li>
               <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/labiaplasty/">Labiaplasty</a>
             </li>
-            
             <li>
-              <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/brow-lift-surgery/">Brow Lift
-                Surgery</a>
-            </li> -->
-          </ul>
-        </div>
-        <div class="menu-column">
-          <h5><a href="#">ENT</a>
-          </h5>
-          <ul class="sub-menu level-3">
-            <li>
-              <a href="#">Tonsillectomy</a>
-            </li>
-            <li>
-              <a href="#">Tympanoplasty</a>
-            </li>
-            <li>
-              <a href="#">Septoplasty</a>
-            </li>
-            <!-- <li>
-              <a href="#">Sinus Surgery</a>
-            </li>
-            <li>
-              <a href="#">Throat Surgery</a>
-            </li>
-            <li>
-              <a href="#">Ear Surgery</a>
-            </li> -->
-            <li>
-              <a href="#" class="view-all-link">View All</a>
-            </li>
-          </ul>
-        </div>
-        <div class="menu-column">
-          <h5><a href="#">Orthopedic</a>
-          </h5>
-          <ul class="sub-menu level-3">
-            <li>
-              <a href="#">Total Knee Replacement</a>
-            </li>
-            <li>
-              <a href="#">Total hip replacement</a>
-            </li>
-            <li>
-              <a href="#">Sports injury management</a>
-            </li>
-            <!-- <li>
-              <a href="#">ORIF</a>
-            </li>
-            <li>
-              <a href="#">Carpal Tunnel Syndrome</a>
-            </li>
-            <li>
-              <a href="#">Shoulder Replacement</a>
-            </li> -->
-            <li>
-              <a href="#" class="view-all-link">View All</a>
-            </li>
-            <!-- <li>
               <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/double-chin-treatment/">Double
                 Chin Treatment</a>
             </li>
             <li>
               <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/brow-lift-surgery/">Brow Lift
                 Surgery</a>
-            </li> -->
+            </li>
           </ul>
         </div>
 
@@ -1622,13 +1404,7 @@
                   </svg></span></a>
               <ul class="sub-menu level-2">
                 <li>
-                  <a href="" class="nested">Proctology 
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
-                  
+                  <a href="" class="nested">Proctology</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-samhitha-reddy/">Dr Samhitha
@@ -1637,12 +1413,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">General & Laparoscopic surgery
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">General & Laparoscopic surgery</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/doctors/hyderabad/dr-abhishek-katha/">Dr Abhishek
@@ -1651,12 +1422,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Urology
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Urology</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/doctors/dr-priyank-ashokkumar-salecha/">Dr. Priyank
@@ -1668,12 +1434,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Gynecology
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Gynecology</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/dr-harshita-kakarla/">Dr. Harshita Kakarla</a>
@@ -1681,12 +1442,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Plastic & Cosmetic Surgery
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Plastic & Cosmetic Surgery</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/doctors/in-hyderabad/dr-chandana-guduru/">Dr
@@ -1705,12 +1461,7 @@
                   </svg></span></a>
               <ul class="sub-menu level-2">
                 <li>
-                  <a href="" class="nested">Proctology 
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Proctology </a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/proctology/piles-treatment/">Piles</a>
@@ -1771,12 +1522,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">General & Laparoscopic surgery
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">General & Laparoscopic surgery</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/general-laparoscopic/hernia-treatment/">Hernia</a>
@@ -1823,12 +1569,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Urology
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Urology</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a href="https://luxhospitals.com/specialities/urology-andrology/kidney-stones-treatment/">Kidney
@@ -1927,12 +1668,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Gynecology
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Gynecology</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a
@@ -2011,12 +1747,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="" class="nested">Plastic & Cosmetic Surgery
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-                        <path stroke="currentColor" d="M5.5 2.5 11 8l-5.5 5.5" />
-                      </svg></span></a>
-                  </a>
+                  <a href="" class="nested">Plastic & Cosmetic Surgery</a>
                   <ul class="sub-menu level-3">
                     <li>
                       <a
@@ -2037,7 +1768,7 @@
                     <li>
                       <a
                         href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/breast-augmentation-surgery/">Breast
-                        Augmentation</a>
+                        Augmentation Surgery</a>
                     </li>
                     <li>
                       <a href="https://luxhospitals.com/specialities/plastic-cosmetic-surgery/buccal-fat-removal/">Buccal
@@ -2097,7 +1828,11 @@
               <span>For Help Line</span>
               <p>+911234567890</p>
             </div>
-
+            <div class="normal__ctas">
+              <p>Book an appointment</p>
+              <p>Find Doctors</p>
+              <p>Contact us</p>
+            </div>
           </div>
         </div>
         <div class="list-wrapper">
@@ -2122,9 +1857,7 @@
     </nav>
   </header>
   <script>
-  
-     //for doctors and about  dropdowns code 
-      document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
       const dropdownItems = document.querySelectorAll(".dropdown__item");
 
       let closeTimeout;
@@ -2151,12 +1884,10 @@
         if (trigger && menu) {
           item.addEventListener("mouseenter", () => {
             openDropdown(menu);
-          
           });
 
           item.addEventListener("mouseleave", () => {
             closeTimeout = setTimeout(() => closeDropdown(menu), closeDelay);
-            document.body.classList.remove("no-scroll");
           });
 
           menu.addEventListener("mouseenter", () =>
@@ -2168,16 +1899,9 @@
         }
       });
     });
+
     //desktop menu code
-    // mega menu code starts here
-    ///
-    
-    //
-    //
-    //
-    //
-    //
-    
+
     const megamenu = document.querySelector(".for_megamenu");
     const megamenuItems = document.querySelectorAll(".has_megamenu");
     const menus = document.querySelectorAll(".custommenu-container-parent");
@@ -2195,14 +1919,7 @@
       if (!isToggled) {
         isToggled = true;
         clearTimeout(closeTimeout);
-          document.body.style.overflow = "hidden";
-
-        if (window.innerWidth <= 1300) {
-          megamenu.style.height = "70vh";
-        } else {
-          megamenu.style.height = "75vh";
-        }
-
+        megamenu.style.height = "60vh";
         megamenu.style.opacity = "1";
       }
     }
@@ -2213,7 +1930,6 @@
         megamenu.style.height = "0";
         megamenu.style.opacity = "0";
         isToggled = false;
-           document.body.style.overflow = "auto";
       }
     }
 
@@ -2235,17 +1951,6 @@
       closeTimeout = setTimeout(closeMegamenu, 300);
     });
 
-  
-    //desktop menu code ends here
-    // mega menu code ends here
-    ///
-    
-    //
-    //
-    //
-    //
-    //
-    //mobile open menu functions starts here
     const showMenu = (toggleId, navId) => {
       const toggle = document.getElementById(toggleId),
         nav = document.getElementById(navId);
@@ -2272,7 +1977,6 @@
     const backOneLevelBtns = pageHeader.querySelectorAll(".back-one-level");
     const isVisibleClass = "is-visible";
     const isActiveClass = "is-active";
-
 
     // Toggle Menu
     toggleMenu.addEventListener("click", function () {
@@ -2327,7 +2031,6 @@
           .classList.remove(isActiveClass);
       });
     }
-  
   </script>
 </body>
 
